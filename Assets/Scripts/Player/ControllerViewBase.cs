@@ -6,23 +6,26 @@ namespace Core.Player
     public class ControllerViewBase : MonoBehaviour
     {
         private Rigidbody rb;
-
-        [SerializeField]
+       
+        #region Check ground fields
         private bool isGrounded;
         private Transform groundCheck;
         [SerializeField]
         private LayerMask groundMask;
         [SerializeField]
         private float groundDistance = 0.55f;
+        #endregion Check ground fields
 
-        private float stopVelocity;
+        #region Move fields
         private float moveSpeed; 
-        
         private Vector3 moveInput;
         private Vector3 smoothVelocity = Vector3.zero;
+        #endregion Move fields
 
+        #region Rotate fields
         private float rotationInput;
         private float rotateSpeed;
+        #endregion Rotate fields
 
         private void Awake()
         {
@@ -34,12 +37,6 @@ namespace Core.Player
         {
             moveInput = direction;
             moveSpeed = speed;
-        }
-
-        public void StopCharacter()
-        {
-            stopVelocity = Mathf.SmoothDamp(rb.velocity.magnitude, 0f, ref stopVelocity, 0.5f);
-            rb.velocity = rb.velocity.normalized * stopVelocity;
         }
 
         public void OnRotate(Vector2 rotation, float rotationSpeed)

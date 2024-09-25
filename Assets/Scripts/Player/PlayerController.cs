@@ -7,6 +7,7 @@ namespace Core.Player.Controllers
     {
         private PlayerData playerData;
         private ControllerViewBase view;
+        private PlayerUIView playerUIView;
 
         public PlayerData PlayerData { get { return playerData; } }
 
@@ -38,6 +39,11 @@ namespace Core.Player.Controllers
         {
             playerData.LevelUp(playerData.Level++);
             playerData.UpdateStatsOnLevelUp();
+        }
+
+        public void Damage(int damage)
+        {
+
         }
     }
 }
