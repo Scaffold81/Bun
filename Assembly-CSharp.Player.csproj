@@ -62,11 +62,14 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Player\PlayerData.cs" />
     <Compile Include="Assets\Scripts\Player\Interfaces\IPlayerController.cs" />
+    <Compile Include="Assets\Scripts\World\GameController.cs" />
     <Compile Include="Assets\Scripts\Camera\PlayerCameraView.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Player\ControllerViewBase.cs" />
+    <Compile Include="Assets\Scripts\World\SpawnItems.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\Scripts\Player\UI\PlayerUIView.cs" />
+    <Compile Include="Assets\Scripts\World\SpawnPlayers.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
