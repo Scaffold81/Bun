@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\UnityProjects\\BattleOfTheBalls\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1FA09BF4-897B-01C1-A81A-C878B8F533A3}|PhotonUnityNetworking.csproj|d:\\unityprojects\\battleoftheballs\\assets\\photon\\photonunitynetworking\\code\\photonnetwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1FA09BF4-897B-01C1-A81A-C878B8F533A3}|PhotonUnityNetworking.csproj|solutionrelative:assets\\photon\\photonunitynetworking\\code\\photonnetwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9CD54BA-D966-9383-734D-9F4156EAB36B}|Assembly-CSharp.csproj|d:\\unityprojects\\battleoftheballs\\assets\\scripts\\photon\\louncher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F9CD54BA-D966-9383-734D-9F4156EAB36B}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\photon\\louncher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PhotonNetwork.cs",
+              "DocumentMoniker": "D:\\UnityProjects\\BattleOfTheBalls\\Assets\\Photon\\PhotonUnityNetworking\\Code\\PhotonNetwork.cs",
+              "RelativeDocumentMoniker": "Assets\\Photon\\PhotonUnityNetworking\\Code\\PhotonNetwork.cs",
+              "ToolTip": "D:\\UnityProjects\\BattleOfTheBalls\\Assets\\Photon\\PhotonUnityNetworking\\Code\\PhotonNetwork.cs",
+              "RelativeToolTip": "Assets\\Photon\\PhotonUnityNetworking\\Code\\PhotonNetwork.cs",
+              "ViewState": "AQIAAA4MAAAAAAAAAAAUwCEMAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-28T03:06:32.245Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Louncher.cs",
+              "DocumentMoniker": "D:\\UnityProjects\\BattleOfTheBalls\\Assets\\Scripts\\Photon\\Louncher.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Photon\\Louncher.cs",
+              "ToolTip": "D:\\UnityProjects\\BattleOfTheBalls\\Assets\\Scripts\\Photon\\Louncher.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Photon\\Louncher.cs",
+              "ViewState": "AQIAADwAAAAAAAAAAAAmwFIAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-28T03:05:32.891Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

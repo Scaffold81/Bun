@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{1B985DC3-8BB5-ABFE-D881-DC1E10DC395E}</ProjectGuid>
+    <ProjectGuid>{8C03F97C-DDD6-D683-115F-A126A5A0A6AC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>PhotonUnityNetworking.Editor</AssemblyName>
@@ -1003,27 +1003,27 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="PhotonRealtime.csproj">
-      <Project>{A40A1E11-D84B-76EF-22F4-49C9E17CE799}</Project>
+      <Project>{D76007B1-9BD7-4071-2128-67E8B9B97517}</Project>
       <Name>PhotonRealtime</Name>
     </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.csproj">
-      <Project>{A0A1AC8E-D6B2-7C61-CD81-971FD49DA575}</Project>
+      <Project>{1FA09BF4-897B-01C1-A81A-C878B8F533A3}</Project>
       <Name>PhotonUnityNetworking</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.UI.csproj">
-      <Project>{9AE2EEAE-6E3D-A170-BAB4-E9AEA4E70DDA}</Project>
+      <Project>{F7D432DC-7A50-0497-26C3-64D8EB781882}</Project>
       <Name>UnityEditor.UI</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{5BE22BC2-AC20-1E4A-EC5E-11E9225391DC}</Project>
+      <Project>{4A6A78FD-E63F-CACC-9069-B3E2A63C30E0}</Project>
       <Name>UnityEngine.UI</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.TestRunner.csproj">
-      <Project>{F838394D-0B96-533F-484A-19DB8FD51012}</Project>
+      <Project>{4ECB1B21-2786-96EF-212A-6EB97AE64CDA}</Project>
       <Name>UnityEditor.TestRunner</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.TestRunner.csproj">
-      <Project>{4815A0CA-4D3A-8DA5-0EE5-7F942FC0EC20}</Project>
+      <Project>{C16A3AD3-D861-C7FD-C388-C317A940540B}</Project>
       <Name>UnityEngine.TestRunner</Name>
     </ProjectReference>
   </ItemGroup>

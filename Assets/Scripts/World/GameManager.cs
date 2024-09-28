@@ -1,4 +1,5 @@
 using Photon.Pun;
+using Photon.Realtime;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,8 +9,10 @@ public class GameManager : MonoBehaviourPunCallbacks
     [SerializeField]
     private LevelMainMenuUIView levelMainMenuUI;
     [SerializeField]
-    private float startingCountdownTime = 15;
-    private float startUpTimer = 15f;
+    private SpawnPlayers spawnPlayers;
+    [SerializeField]
+    private float startingCountdownTime = 5;
+    private float startUpTimer = 5f;
 
     private void Start()
     {
@@ -27,18 +30,18 @@ public class GameManager : MonoBehaviourPunCallbacks
 
             if (startUpTimer == 0)
             {
+                spawnPlayers.SpawnPlayer();
                 print(startUpTimer);
             }
-
         }
-
     }
     #region Photon Callbacks
     public override void OnLeftRoom()
     {
         SceneManager.LoadScene(0);
     }
-   /* public override void OnPlayerEnteredRoom(Player other)
+
+    public override void OnPlayerEnteredRoom(Player other)
     {
         Debug.LogFormat("OnPlayerEnteredRoom() {0}", other.NickName); // not seen if you're the player connecting
 
@@ -60,7 +63,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
             LoadArena();
         }
-    }*/
+    }
 
     #endregion Photon Callbacks
 
@@ -82,6 +85,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             Debug.LogError("PhotonNetwork : Trying to Load a level but we are not the master Client");
             return;
         }
+        
         Debug.LogFormat("PhotonNetwork : Loading Level : {0}", PhotonNetwork.CurrentRoom.PlayerCount);
         PhotonNetwork.LoadLevel("Room for " + PhotonNetwork.CurrentRoom.PlayerCount);
     } 
