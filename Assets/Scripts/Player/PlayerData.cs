@@ -19,7 +19,7 @@
         public float Gravity { get; private set; }
         public float JumpForce { get; private set; }
         public int Level { get;  set; }
-       
+        public bool IsMine { get; set; }
 
         public void LevelUp(int level)
         {

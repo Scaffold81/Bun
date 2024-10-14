@@ -12,29 +12,24 @@ public class PlayerCameraView : MonoBehaviour
     [SerializeField]
     private float smoothSpeed = 5.125f;
     private Vector3 velocity = Vector3.zero;
-    public Transform Target { get ; set; }
+    public Transform Target { get ;private set; }
     public Vector3 Offset { get;}
-    
-    private void Start()
-    {
-
-    }
 
     public void Init(Transform target)
     {
-        this.target = target;
+        this.Target = target;
     }
 
     private void LateUpdate()
     {
-        if (target != null)
+        if (Target != null)
         {
-            Quaternion targetRotation = target.rotation;
-            Vector3 desiredPosition = target.position + targetRotation * offset;
+            Quaternion targetRotation = Target.rotation;
+            Vector3 desiredPosition = Target.position + targetRotation * offset;
             Vector3 smoothedPosition = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed);
             transform.position = smoothedPosition;
 
-            transform.LookAt(target);
+            transform.LookAt(Target);
         }
     }
 }
