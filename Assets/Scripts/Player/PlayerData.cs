@@ -5,7 +5,7 @@
         private float baseSpeedRotate=7;
         private float baseSpeed = 5f;
         private float baseGravity = -9.81f;
-        private float baseJumpForce = 3000f;
+        private float baseJumpForce = 13000f;
 
         private int level = 1;
         

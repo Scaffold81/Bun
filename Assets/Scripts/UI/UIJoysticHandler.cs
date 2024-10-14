@@ -90,7 +90,6 @@ public class UIJoysticHandler : MonoBehaviour, IPointerDownHandler, IPointerUpHa
         if (!onJoystic) return;
         Vector2 clampedDirection = _direction.normalized * Mathf.Clamp(_direction.magnitude, 0, _joystickRadius); // Ограничиваем движение по известному направлению в пределах радиуса
         _joystickStick.transform.position = (Vector2)transform.position + clampedDirection; // Устанавливаем позицию _stick с ограничением по радиусу относительно центра
-                                                                              // _stick.transform.position = transform.position + _direction;
     }
 
     public void OnPointerDown(PointerEventData eventData)

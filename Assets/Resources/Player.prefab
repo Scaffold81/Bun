@@ -94,8 +94,9 @@ GameObject:
   - component: {fileID: 5036934758688322632}
   - component: {fileID: 3263518381224043719}
   - component: {fileID: 3823415782731251640}
-  - component: {fileID: 6422648669087544336}
+  - component: {fileID: 8827429441671731866}
   - component: {fileID: 6871510200895769330}
+  - component: {fileID: 6422648669087544336}
   - component: {fileID: 3208953515001227294}
   - component: {fileID: 6971375949848834603}
   - component: {fileID: 7021948134329017519}
@@ -134,10 +135,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b14cb3e96ae8a4e8ebc8c54ce6c695, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundMask:
+  _groundMask:
     serializedVersion: 2
     m_Bits: 8
-  groundDistance: 0.55
+  _groundDistance: 0.55
 --- !u!114 &3823415782731251640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,33 +151,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67660324786b3c3458b29d54acfd6ad7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!54 &6422648669087544336
-Rigidbody:
+--- !u!114 &8827429441671731866
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3003225546864642522}
-  serializedVersion: 4
-  m_Mass: 1000
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 80
-  m_CollisionDetection: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ba6623b1126cc04590b4b785d2f022c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6871510200895769330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -295,11 +281,46 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 04497408-accf-4d90-93ff-65cd3c72623e
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 40b1869b-62b4-4259-8aa6-62512409e85e
+    m_ActionName: Player/Touchscreen[/Device Simulator Touchscreen/primaryTouch]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 876ff518-fd84-4504-8fee-eafc66ddd26f
+    m_ActionName: Player/Mouse[/Mouse/position]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!54 &6422648669087544336
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003225546864642522}
+  serializedVersion: 4
+  m_Mass: 1000
+  m_Drag: 0
+  m_AngularDrag: 0.1
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!114 &3208953515001227294
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ public class SpawnPlayers : MonoBehaviour
     [SerializeField]
     private GameObject playerControllerPrefab;
 
-    private float spawnRadius = 100;
+    private float spawnRadius = 10;
     private float newPriority=1;
 
     public void SpawnPlayer()

@@ -6,8 +6,7 @@ public class UIJumpButtonHandler :MonoBehaviour
 {
     private Button jumpButton;
     public Action Jump;
-
-  
+    
     private void Awake()
     {
         jumpButton = GetComponent<Button>();
