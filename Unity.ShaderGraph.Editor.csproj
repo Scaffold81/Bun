@@ -634,8 +634,8 @@
     <Compile Include="Library\PackageCache\com.unity.shadergraph@14.0.9\Editor\Drawing\Inspector\PropertyDrawers\Texture3DPropertyDrawer.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@14.0.9\Editor\Data\Nodes\Utility\Logic\AndNode.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@14.0.9\Editor\Generation\Processors\ShaderStringBuilder.cs" />
-    <Compile Include="Library\PackageCache\com.unity.shadergraph@14.0.9\Editor\Data\Nodes\Math\Wave\TriangleWaveNode.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@14.0.9\Editor\Generation\Targets\BuiltIn\Editor\AssetPostProcessors\MaterialPostprocessor.cs" />
+    <Compile Include="Library\PackageCache\com.unity.shadergraph@14.0.9\Editor\Data\Nodes\Math\Wave\TriangleWaveNode.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@14.0.9\Editor\Generation\Contexts\TargetFieldContext.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@14.0.9\Editor\Data\Nodes\Channel\SplitNode.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@14.0.9\Editor\Generation\Enumerations\Platform.cs" />

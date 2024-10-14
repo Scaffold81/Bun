@@ -1,4 +1,4 @@
-using Core.Network.Louncher.UI;
+using Core.UI;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
@@ -8,7 +8,7 @@ namespace Core.Network.Louncher
     public class Louncher : MonoBehaviourPunCallbacks
     {
         [SerializeField]
-        private MainUIView mainUIView;
+        private UIMainView mainUIView;
         
         private string gameVersion = "1";
       

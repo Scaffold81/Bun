@@ -1,3 +1,4 @@
+using Core.UI;
 using Photon.Pun;
 using Photon.Realtime;
 using System.Collections;
@@ -7,12 +8,12 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviourPunCallbacks
 {
     [SerializeField]
-    private LevelMainMenuUIView levelMainMenuUI;
+    private UILevelMainMenuView levelMainMenuUI;
     [SerializeField]
     private SpawnPlayers spawnPlayers;
     [SerializeField]
-    private float startingCountdownTime = 5;
-    private float startUpTimer = 5f;
+    private float startingCountdownTime = 1;
+    private float startUpTimer = 1f;
 
     private void Start()
     {
@@ -31,7 +32,6 @@ public class GameManager : MonoBehaviourPunCallbacks
             if (startUpTimer == 0)
             {
                 spawnPlayers.SpawnPlayer();
-                print(startUpTimer);
             }
         }
     }
