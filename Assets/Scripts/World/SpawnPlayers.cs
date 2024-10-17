@@ -14,7 +14,7 @@ public class SpawnPlayers : MonoBehaviour
     [SerializeField]
     private GameObject playerControllerPrefab;
 
-    private float spawnRadius = 100;
+    private float spawnRadius = 10;
     private float newPriority=1;
 
     public void SpawnPlayer()
@@ -41,7 +41,7 @@ public class SpawnPlayers : MonoBehaviour
                     playerCamera.GetComponent<Camera>().depth = newPriority;
 
                     var playerUI = Instantiate(playerUIprefab);
-                    player.GetComponent<PlayerController>().Init(playerUI.GetComponent<UIPlayerView>());
+                    player.GetComponent<PlayerController>().SetPlayerUI(playerUI.GetComponent<UIPlayerView>());
                 }
             }
         }

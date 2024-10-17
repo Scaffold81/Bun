@@ -2,70 +2,79 @@ using UnityEngine;
 
 namespace Core.Player
 {
-    [RequireComponent(typeof(Rigidbody))]
     public class ControllerViewBase : MonoBehaviour
     {
-        private Rigidbody rb;
-       
+        private Rigidbody _rb;
+
         #region Check ground fields
-        private bool isGrounded;
-        private Transform groundCheck;
+        private bool _isGrounded;
+        private Transform _groundCheck;
         [SerializeField]
-        private LayerMask groundMask;
-        [SerializeField]
-        private float groundDistance = 0.55f;
+        private LayerMask _groundMask;
         #endregion Check ground fields
 
         #region Move fields
-        private float moveSpeed; 
-        private Vector3 moveInput;
-        private Vector3 smoothVelocity = Vector3.zero;
+        private float _moveSpeed;
+        private Vector3 _moveInput;
+        private Vector3 _smoothVelocity = Vector3.zero;
         #endregion Move fields
 
         #region Rotate fields
-        private float rotationInput;
-        private float rotateSpeed;
+        private float _rotationInput;
+        private float _rotateSpeed;
         #endregion Rotate fields
 
         private void Awake()
         {
-            groundCheck = transform;
-            rb = GetComponent<Rigidbody>();
+            _groundCheck = transform;
+        }
+
+        public void Init(Rigidbody rb)
+        {
+            _rb = rb;
         }
 
         public void OnMove(Vector2 direction, float speed)
         {
-            moveInput = direction;
-            moveSpeed = speed;
+            _moveInput = direction;
+            _moveSpeed = speed;
         }
 
         public void OnRotate(Vector2 rotation, float rotationSpeed)
         {
-            rotationInput = rotation.normalized.x * rotationSpeed;
-            rotateSpeed = rotationSpeed;
+            _rotationInput = rotation.normalized.x * rotationSpeed;
+            _rotateSpeed = rotationSpeed;
         }
 
         public void OnJump(float jumpForce)
         {
-            if (isGrounded)
-                rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            if (_isGrounded)
+                _rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
 
         private void Move()
         {
-            var targetVelocity = transform.TransformDirection(new Vector3(0, 0, moveInput.y)) * moveSpeed;
-            rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref smoothVelocity, 0.5f);
+            if (!_rb) return;
+            var targetVelocity = transform.TransformDirection(new Vector3(0, 0, _moveInput.y)) * _moveSpeed;
+            _rb.velocity = Vector3.SmoothDamp(_rb.velocity, targetVelocity, ref _smoothVelocity, 0.5f);
         }
 
         private void Rotate()
         {
-            Quaternion deltaRotation = Quaternion.Euler(Vector3.up * rotationInput * rotateSpeed * Time.deltaTime);
-            rb.MoveRotation(rb.rotation * deltaRotation);
+            if (!_rb) return;
+            Quaternion deltaRotation = Quaternion.Euler(Vector3.up * _rotationInput * _rotateSpeed * Time.deltaTime);
+            _rb.MoveRotation(_rb.rotation * deltaRotation);
+        }
+
+        public void SetInpulse(Vector3 direction)
+        {
+            if (!_rb) return;
+            _rb.AddForce(direction, ForceMode.Impulse);
         }
 
         private void Update()
         {
-            isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+            _isGrounded = Physics.CheckSphere(_groundCheck.position, transform.localScale.y / 2, _groundMask);
         }
 
         private void FixedUpdate()
