@@ -1,22 +1,22 @@
 using Photon.Pun;
-using System;
 using UnityEngine;
 
 namespace Core.Player.Controllers
 {
     public class CollisionHandler : MonoBehaviour
     {
+        private PlayerController _playerController;
+        private PhotonView _photonView;
         private Rigidbody _rb;
 
         private float _timeBetweenCollisions = 0.5f;
 
         private bool _canApplyForce = true;
 
-        public Action<Vector3> DamageImpulse;
-        private Rigidbody otherRigidbody;
-
-        public void Init(Rigidbody rb)
+        public void Init(Rigidbody rb, PhotonView photonView, PlayerController playerController)
         {
+            _playerController = playerController;
+            _photonView = photonView;
             _rb = rb;
         }
 
@@ -24,37 +24,27 @@ namespace Core.Player.Controllers
         {
             if (!_canApplyForce)
             {
-                Debug.Log("Too fast collision detection. Waiting for cooldown.");
+                print("Too fast collision detection. Waiting for cooldown.");
                 return; // Прерываем выполнение метода
             }
 
-             otherRigidbody = collision.gameObject.GetComponent<Rigidbody>();
-           
-            if (otherRigidbody != null)
+            var otherRigidbody = collision.gameObject.GetComponent<Rigidbody>();
+            var otherPlayer = collision.gameObject.GetComponent<PlayerController>();
+
+            if (otherPlayer == null) return;
+
+            var impactForce = _rb.velocity * _rb.mass; // Рассчитывем импульс силы
+            var forceDirection = otherPlayer.transform.position - _rb.transform.position;
+            var force = forceDirection.normalized * impactForce.magnitude * 5f;
+
+            if (_rb.velocity.magnitude > otherRigidbody.velocity.magnitude)
             {
-                var impactForce = _rb.velocity * _rb.mass * 5; // Рассчитывем импульс силы
-                
-                var forceDirection = otherRigidbody.transform.position - _rb.transform.position;
-                
-                var force = forceDirection.normalized * impactForce.magnitude; 
-
-                // Отправка RPC другому клиенту, указав имя метода и параметры (используя импульс силы)
-                var photonView = collision.gameObject.GetComponent<PhotonView>();
-
-                if (photonView != null)
-                    photonView.RPC("HandleCollision", RpcTarget.Others, force);
-
-                _canApplyForce = false; // Устанавливаем флаг "canApplyForce" в false
-                Invoke(nameof(ResetForceFlag), _timeBetweenCollisions); // Вызываем метод сброса флага после указанного времени
+                otherPlayer.OnDamageRPC(force);
+                _playerController.IncreaseMassRPC(force);
             }
-        }
 
-        [PunRPC]
-        private void HandleCollision(Vector3 impactForce)
-        {
-            _rb.velocity = Vector3.zero;
-            _rb.angularVelocity = Vector3.zero;
-            DamageImpulse(impactForce);
+            _canApplyForce = false; // Устанавливаем флаг "canApplyForce" в false
+            Invoke(nameof(ResetForceFlag), _timeBetweenCollisions); // Вызываем метод сброса флага после указанного времени
         }
 
         private void ResetForceFlag()

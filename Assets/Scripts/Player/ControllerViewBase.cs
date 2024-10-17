@@ -2,22 +2,19 @@ using UnityEngine;
 
 namespace Core.Player
 {
-    [RequireComponent(typeof(Rigidbody))]
     public class ControllerViewBase : MonoBehaviour
     {
         private Rigidbody _rb;
-       
+
         #region Check ground fields
         private bool _isGrounded;
         private Transform _groundCheck;
         [SerializeField]
         private LayerMask _groundMask;
-        [SerializeField]
-        private float _groundDistance = 0.55f;
         #endregion Check ground fields
 
         #region Move fields
-        private float _moveSpeed; 
+        private float _moveSpeed;
         private Vector3 _moveInput;
         private Vector3 _smoothVelocity = Vector3.zero;
         #endregion Move fields
@@ -34,7 +31,7 @@ namespace Core.Player
 
         public void Init(Rigidbody rb)
         {
-           _rb = rb;
+            _rb = rb;
         }
 
         public void OnMove(Vector2 direction, float speed)
@@ -53,7 +50,6 @@ namespace Core.Player
         {
             if (_isGrounded)
                 _rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            print("OnJump");
         }
 
         private void Move()
@@ -72,13 +68,13 @@ namespace Core.Player
 
         public void SetInpulse(Vector3 direction)
         {
-            if(!_rb)return;
+            if (!_rb) return;
             _rb.AddForce(direction, ForceMode.Impulse);
         }
 
         private void Update()
         {
-            _isGrounded = Physics.CheckSphere(_groundCheck.position, _groundDistance, _groundMask);
+            _isGrounded = Physics.CheckSphere(_groundCheck.position, transform.localScale.y / 2, _groundMask);
         }
 
         private void FixedUpdate()

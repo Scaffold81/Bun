@@ -41,7 +41,7 @@ public class SpawnPlayers : MonoBehaviour
                     playerCamera.GetComponent<Camera>().depth = newPriority;
 
                     var playerUI = Instantiate(playerUIprefab);
-                    player.GetComponent<PlayerController>().Init(playerUI.GetComponent<UIPlayerView>());
+                    player.GetComponent<PlayerController>().SetPlayerUI(playerUI.GetComponent<UIPlayerView>());
                 }
             }
         }

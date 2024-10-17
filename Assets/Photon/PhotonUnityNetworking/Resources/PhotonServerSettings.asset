@@ -40,6 +40,12 @@ MonoBehaviour:
   - Fire
   - RespawnSpaceship
   - HandleCollision
+  - UpdateStats
+  - IncreaseMassRPC
+  - OnDamageImpulse
+  - OnIncreaseMass
+  - Damage
+  - IncreaseMass
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 3208953515001227294}
   - component: {fileID: 6971375949848834603}
   - component: {fileID: 7021948134329017519}
+  - component: {fileID: 7859969286900890359}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -151,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67660324786b3c3458b29d54acfd6ad7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _go: {fileID: 2669718595565168623}
 --- !u!114 &8827429441671731866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,8 +305,8 @@ Rigidbody:
   m_GameObject: {fileID: 3003225546864642522}
   serializedVersion: 4
   m_Mass: 1000
-  m_Drag: 0
-  m_AngularDrag: 0.1
+  m_Drag: 1
+  m_AngularDrag: 1
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -340,7 +342,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 0
   ObservedComponents:
-  - {fileID: 6971375949848834603}
+  - {fileID: 7859969286900890359}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -351,7 +353,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3003225546864642522}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
   m_Name: 
@@ -381,3 +383,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7859969286900890359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003225546864642522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64179f3720bbfe947b7724caa67b7c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizeVelocity: 1
+  m_SynchronizeAngularVelocity: 0
+  m_TeleportEnabled: 0
+  m_TeleportIfDistanceGreaterThan: 3
