@@ -1,12 +1,19 @@
+using Core.Data;
+using Core.Player.Controllers;
 using Core.UI;
 using Photon.Pun;
 using Photon.Realtime;
 using System.Collections;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class GameManager : MonoBehaviourPunCallbacks
 {
+    private SceneDataProvider _sceneDataProvider;
+
     [SerializeField]
     private UILevelMainMenuView levelMainMenuUI;
     [SerializeField]
@@ -18,7 +25,21 @@ public class GameManager : MonoBehaviourPunCallbacks
     private void Start()
     {
         levelMainMenuUI.Init(this);
+        _sceneDataProvider = SceneDataProvider.Instance; 
+
+        Subscribtion();
+
         StartCoroutine(StartGame());
+        
+    }
+
+    private void Subscribtion()
+    {
+        _sceneDataProvider.Receive<List<PlayerController>?>(PlayerDataNames.Players).Subscribe(newValue =>
+        {
+            print(newValue.Count);
+           print( newValue.FirstOrDefault(p => p.PlayerData.IsMine==true).PlayerData.PlayerState);
+        });
     }
 
     private IEnumerator StartGame()
@@ -35,6 +56,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             }
         }
     }
+
     #region Photon Callbacks
     public override void OnLeftRoom()
     {

@@ -139,7 +139,6 @@ MonoBehaviour:
   _groundMask:
     serializedVersion: 2
     m_Bits: 8
-  _groundDistance: 0.55
 --- !u!114 &3823415782731251640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,7 +151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67660324786b3c3458b29d54acfd6ad7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _go: {fileID: 2669718595565168623}
 --- !u!114 &8827429441671731866
 MonoBehaviour:
   m_ObjectHideFlags: 0

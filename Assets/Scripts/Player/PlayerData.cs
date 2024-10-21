@@ -4,6 +4,8 @@ namespace Core.Player
 {
     public class PlayerData
     {
+        private PlayerStates _playerState;
+        
         private float baseSpeedRotate = 7;
         private float baseSpeed = 5f;
         private float baseGravity = -9.81f;
@@ -27,6 +29,7 @@ namespace Core.Player
         public int Level { get; set; }
 
         public bool IsMine { get; set; }
+        public PlayerStates PlayerState { get; set; }
 
         public float Mass
         {
@@ -39,7 +42,6 @@ namespace Core.Player
         
         public Action<float> MassChanged;
         
-
         public void LevelUp(int level)
         {
             Level = level;

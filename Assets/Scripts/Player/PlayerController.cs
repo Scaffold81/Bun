@@ -35,8 +35,6 @@ namespace Core.Player.Controllers
         {
             _view.Init(_rb);
             _collisionHandler.Init(_rb, _photonView, this);
-
-            _playerData.IsMine = _photonView.IsMine;
             _photonView.RPC("UpdateStats", RpcTarget.All);
         }
 
