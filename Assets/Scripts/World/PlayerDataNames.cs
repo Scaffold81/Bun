@@ -1,2 +1,10 @@
-﻿#nullable enable
-public enum PlayerDataNames { Players, PlayerState }
+﻿
+public enum PlayerDataNames {CurrenPlayer, Players, PlayerState,Timer }
+public enum PhotonCallbacksNames 
+{
+    OnPlayerMasterClientSpawn, 
+    OnPlayerClientSpawn,
+    OnMasterClientSwitched,
+    OnPlayerEnteredRoom
+}
+

@@ -33,7 +33,8 @@ namespace Core.Player
 
         public float Mass
         {
-            get => mass; set
+            get => mass; 
+            set
             {
                 mass = value;
                 OnMassChanged(value);

@@ -40,13 +40,15 @@ namespace Core.Player.Controllers
 
         public void SetPlayerUI(UIPlayerView playerUIView)
         {
+           
             _playerUIView = playerUIView;
-
-            _playerUIView.JoysticHandler.Direction += MoveEndRotate;
+            
+            if (!PlayerData.IsMine) return;
+            _playerUIView.JoysticHandler.Direction += MoveAndRotate;
             _playerUIView.JumpButtonHandler.Jump += OnJump;
         }
 
-        private void MoveEndRotate(Vector2 vector)
+        private void MoveAndRotate(Vector2 vector)
         {
             vector = vector.normalized;
             _view.OnMove(new Vector2(0, vector.y), _playerData.Speed);
@@ -121,7 +123,9 @@ namespace Core.Player.Controllers
 
         private void OnDestroy()
         {
-            _playerUIView.JoysticHandler.Direction -= MoveEndRotate;
+            if(!PlayerData.IsMine)return;
+
+            _playerUIView.JoysticHandler.Direction -= MoveAndRotate;
             _playerUIView.JumpButtonHandler.Jump -= OnJump;
             _playerView.UnSubscribe();
         }

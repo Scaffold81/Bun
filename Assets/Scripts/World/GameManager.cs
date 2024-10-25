@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     private UILevelMainMenuView levelMainMenuUI;
     [SerializeField]
     private SpawnPlayers spawnPlayers;
+    
     [SerializeField]
     private float startingCountdownTime = 1;
     private float startUpTimer = 1f;
@@ -27,18 +28,22 @@ public class GameManager : MonoBehaviourPunCallbacks
         levelMainMenuUI.Init(this);
         _sceneDataProvider = SceneDataProvider.Instance; 
 
-        Subscribtion();
+        Subscription();
 
         StartCoroutine(StartGame());
         
     }
 
-    private void Subscribtion()
+    private void Subscription()
     {
-        _sceneDataProvider.Receive<List<PlayerController>?>(PlayerDataNames.Players).Subscribe(newValue =>
+        _sceneDataProvider.Receive<float>(PlayerDataNames.Timer).Subscribe(newValue =>
         {
-            print(newValue.Count);
-           print( newValue.FirstOrDefault(p => p.PlayerData.IsMine==true).PlayerData.PlayerState);
+           
+        });
+
+        _sceneDataProvider.Receive<List<PlayerController>>(PlayerDataNames.Players).Subscribe(newValue =>
+        {
+
         });
     }
 
@@ -58,21 +63,22 @@ public class GameManager : MonoBehaviourPunCallbacks
     }
 
     #region Photon Callbacks
+
+    public override void OnMasterClientSwitched(Player other)
+    {
+        _sceneDataProvider.Publish(PhotonCallbacksNames.OnMasterClientSwitched, other.NickName);
+    }
+    
+    public override void OnPlayerEnteredRoom(Player other)
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            _sceneDataProvider.Publish(PhotonCallbacksNames.OnPlayerEnteredRoom, other.NickName);
+        }
+    }
     public override void OnLeftRoom()
     {
         SceneManager.LoadScene(0);
-    }
-
-    public override void OnPlayerEnteredRoom(Player other)
-    {
-        Debug.LogFormat("OnPlayerEnteredRoom() {0}", other.NickName); // not seen if you're the player connecting
-
-        if (PhotonNetwork.IsMasterClient)
-        {
-            Debug.LogFormat("OnPlayerEnteredRoom IsMasterClient {0}", PhotonNetwork.IsMasterClient); // called before OnPlayerLeftRoom
-
-            LoadArena();
-        }
     }
 
     public override void OnPlayerLeftRoom(Player other)
@@ -92,23 +98,11 @@ public class GameManager : MonoBehaviourPunCallbacks
     public void LeaveRoom()
     {
         PhotonNetwork.LeaveRoom();
+
     }
 
     #endregion Public Methods
 
     #region Private Methods
-   
-    private void LoadArena()
-    {
-        if (!PhotonNetwork.IsMasterClient)
-        {
-            Debug.LogError("PhotonNetwork : Trying to Load a level but we are not the master Client");
-            return;
-        }
-        
-        Debug.LogFormat("PhotonNetwork : Loading Level : {0}", PhotonNetwork.CurrentRoom.PlayerCount);
-      //  PhotonNetwork.LoadLevel(SceneManager.GetActiveScene().name);
-    } 
-
     #endregion Private Methods
 }

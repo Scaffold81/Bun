@@ -66,8 +66,8 @@
     <Compile Include="Library\PackageCache\com.unity.shadergraph@14.0.9\Editor\Drawing\ViewModels\ShaderInputViewModel.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@14.0.9\Editor\Data\ContextData.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@14.0.9\Editor\Generation\Enumerations\BlendOp.cs" />
-    <Compile Include="Library\PackageCache\com.unity.shadergraph@14.0.9\Editor\Data\Graphs\GraphDataReadOnly.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@14.0.9\Editor\Drawing\Controllers\ShaderInputViewController.cs" />
+    <Compile Include="Library\PackageCache\com.unity.shadergraph@14.0.9\Editor\Data\Graphs\GraphDataReadOnly.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@14.0.9\Editor\Data\Interfaces\IMayRequireVertexID.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@14.0.9\Editor\Data\Nodes\FormerNameAttribute.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@14.0.9\Editor\Drawing\Views\Slots\GradientSlotControlView.cs" />
@@ -269,8 +269,8 @@
     <Compile Include="Library\PackageCache\com.unity.shadergraph@14.0.9\Editor\AssemblyInfo.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@14.0.9\Editor\Util\AssertHelpers.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@14.0.9\Editor\Data\Graphs\Matrix3ShaderProperty.cs" />
-    <Compile Include="Library\PackageCache\com.unity.shadergraph@14.0.9\Editor\Generation\Targets\CustomRenderTexture\CustomTextureSize.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@14.0.9\Editor\Data\Graphs\VectorShaderProperty.cs" />
+    <Compile Include="Library\PackageCache\com.unity.shadergraph@14.0.9\Editor\Generation\Targets\CustomRenderTexture\CustomTextureSize.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@14.0.9\Editor\Data\Graphs\GroupData.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@14.0.9\Editor\Data\Implementation\GraphObject.cs" />
     <Compile Include="Library\PackageCache\com.unity.shadergraph@14.0.9\Editor\Drawing\Interfaces\ISGViewModel.cs" />
@@ -1217,6 +1217,10 @@
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.14f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="System.Reactive">
+      <HintPath>Assets\Packages\System.Reactive.5.0.0\lib\netstandard2.0\System.Reactive.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.VisualScripting.YamlDotNet">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll</HintPath>
       <Private>False</Private>
@@ -1263,10 +1267,6 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.TextureAssets">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.1\Editor\VisualScripting.Core\EditorAssetResources\Unity.VisualScripting.TextureAssets.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System.Reactive">
-      <HintPath>Assets\Packages\System.Reactive.5.0.0\lib\netstandard2.0\System.Reactive.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="nunit.framework">

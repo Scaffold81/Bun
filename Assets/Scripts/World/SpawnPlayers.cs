@@ -1,4 +1,3 @@
-#nullable enable
 using Core.Data;
 using Core.Player.Controllers;
 using Core.UI;
@@ -29,8 +28,8 @@ public class SpawnPlayers : MonoBehaviour
 
     public void SpawnPlayer()
     {
-        var players = (List<PlayerController>?)_sceneDataProvider.GetValue(PlayerDataNames.Players) ?? new List<PlayerController>();
-        
+        var players = (List<PlayerController>)_sceneDataProvider.GetValue(PlayerDataNames.Players) ?? new List<PlayerController>();
+
         var spawnPosition = CalculatePositionInRadius();
 
         if (_playerControllerPrefab == null)
@@ -41,27 +40,35 @@ public class SpawnPlayers : MonoBehaviour
         {
             var player = PhotonNetwork.Instantiate(this._playerControllerPrefab.name, spawnPosition, Quaternion.identity, 0).GetComponent<PlayerController>();
             var photonView = player.gameObject.GetPhotonView();
-            
+
             if (photonView != null)
             {
                 if (photonView.IsMine)
                 {
+                    player.PlayerData.IsMine = true;
+
                     var playerCamera = Instantiate(_playerCameraPrefab, player.transform.position + new Vector3(0, 1, 0), Quaternion.identity);
                     playerCamera.GetComponent<PlayerCameraView>().Init(player.transform);
                     playerCamera.GetComponent<Camera>().depth = _newPriority;
 
                     var playerUI = Instantiate(_playerUIprefab);
-                    player.SetPlayerUI(playerUI.GetComponent<UIPlayerView>());
-                    player.PlayerData.IsMine = true;
+                    player.SetPlayerUI(playerUI.GetComponent<UIPlayerView>()); 
+                    
+                    if (photonView.Owner.IsMasterClient)
+                        _sceneDataProvider.Publish(PhotonCallbacksNames.OnPlayerMasterClientSpawn, player);
                 }
                 else
                 {
+                    if (!photonView.Owner.IsMasterClient)
+                        _sceneDataProvider.Publish(PhotonCallbacksNames.OnPlayerClientSpawn, player);
+                    
                     player.PlayerData.IsMine = false;
                 }
             }
 
             player.PlayerData.PlayerState = PlayerStates.Alive;
             players.Add(player);
+            _sceneDataProvider.Publish(PlayerDataNames.CurrenPlayer, player);
             _sceneDataProvider.Publish(PlayerDataNames.Players, players);
 
 

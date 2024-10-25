@@ -1,5 +1,7 @@
 #nullable enable
 
+using System;
+
 namespace Core.Data
 {
     public class SceneDataProvider : DataProviderBase
