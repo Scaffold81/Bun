@@ -9,100 +9,120 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Linq;
-
-public class GameManager : MonoBehaviourPunCallbacks
+using Game.Core.Enums;
+using System.Reactive.Disposables;
+using RxExtensions;
+namespace Game.Core.Managers
 {
-    private SceneDataProvider _sceneDataProvider;
-
-    [SerializeField]
-    private UILevelMainMenuView levelMainMenuUI;
-    [SerializeField]
-    private SpawnPlayers spawnPlayers;
-    
-    [SerializeField]
-    private float startingCountdownTime = 1;
-    private float startUpTimer = 1f;
-
-    private void Start()
+    public class GameManager : MonoBehaviourPunCallbacks
     {
-        levelMainMenuUI.Init(this);
-        _sceneDataProvider = SceneDataProvider.Instance; 
+        private SceneDataProvider _sceneDataProvider;
 
-        Subscription();
+        [SerializeField]
+        private UILevelMainMenuView levelMainMenuUI;
+        [SerializeField]
+        private SpawnPlayers spawnPlayers;
 
-        StartCoroutine(StartGame());
+        [SerializeField]
+        private float startingCountdownTime = 1;
+        private float startUpTimer = 1f;
+
+        private CompositeDisposable _disposables = new();
+
+        private void Start()
+        {
+            levelMainMenuUI.Init(this);
+            _sceneDataProvider = SceneDataProvider.Instance;
+
+            Subscription();
+
+            StartCoroutine(StartGame());
+
+        }
         
-    }
-
-    private void Subscription()
-    {
-        _sceneDataProvider.Receive<float>(PlayerDataNames.Timer).Subscribe(newValue =>
+        #region Private Methods
+        private void Subscription()
         {
-           
-        });
-
-        _sceneDataProvider.Receive<List<PlayerController>>(PlayerDataNames.Players).Subscribe(newValue =>
-        {
-
-        });
-    }
-
-    private IEnumerator StartGame()
-    {
-        startUpTimer = startingCountdownTime;
-        while (startUpTimer > 0)
-        {
-            yield return new WaitForSeconds(1);
-            startUpTimer--;
-
-            if (startUpTimer == 0)
+            _sceneDataProvider.Receive<GameState>(GameDataNames.GameState).Subscribe(newValue =>
             {
-                spawnPlayers.SpawnPlayer();
+                if (newValue == GameState.End)
+                    EndGame();
+            }).AddTo(_disposables);
+
+            _sceneDataProvider.Receive<List<PlayerController>>(PlayerDataNames.Players).Subscribe(newValue =>
+            {
+
+            }).AddTo(_disposables);
+        }
+
+        private void EndGame()
+        {
+            var players = (List<PlayerController>)_sceneDataProvider.GetValue(PlayerDataNames.Players) ?? new List<PlayerController>();
+            players.ForEach(player => player.PlayerData.IsActive = false);
+        }
+
+        private IEnumerator StartGame()
+        {
+            startUpTimer = startingCountdownTime;
+            while (startUpTimer > 0)
+            {
+                yield return new WaitForSeconds(1);
+                startUpTimer--;
+
+                if (startUpTimer == 0)
+                {
+                    spawnPlayers.SpawnPlayer();
+                }
             }
         }
-    }
-
-    #region Photon Callbacks
-
-    public override void OnMasterClientSwitched(Player other)
-    {
-        _sceneDataProvider.Publish(PhotonCallbacksNames.OnMasterClientSwitched, other.NickName);
-    }
-    
-    public override void OnPlayerEnteredRoom(Player other)
-    {
-        if (PhotonNetwork.IsMasterClient)
+        
+        private void OnDestroy()
         {
-            _sceneDataProvider.Publish(PhotonCallbacksNames.OnPlayerEnteredRoom, other.NickName);
+            _disposables.Dispose();
         }
-    }
-    public override void OnLeftRoom()
-    {
-        SceneManager.LoadScene(0);
-    }
 
-    public override void OnPlayerLeftRoom(Player other)
-    {
-        Debug.LogFormat("OnPlayerLeftRoom() {0}", other.NickName); // seen when other disconnects
+        #endregion Private Methods
+       
+        #region Photon Callbacks
 
-        if (PhotonNetwork.IsMasterClient)
+        public override void OnMasterClientSwitched(Player other)
         {
-            Debug.LogFormat("OnPlayerLeftRoom IsMasterClient {0}", PhotonNetwork.IsMasterClient); // called before OnPlayerLeftRoom
+            _sceneDataProvider.Publish(PhotonCallbacksNames.OnMasterClientSwitched, other.NickName);
         }
+
+        public override void OnPlayerEnteredRoom(Player other)
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                _sceneDataProvider.Publish(PhotonCallbacksNames.OnPlayerEnteredRoom, other.NickName);
+            }
+        }
+
+        public override void OnLeftRoom()
+        {
+            SceneManager.LoadScene(0);
+        }
+
+        public override void OnPlayerLeftRoom(Player other)
+        {
+            Debug.LogFormat("OnPlayerLeftRoom() {0}", other.NickName); // seen when other disconnects
+
+            if (PhotonNetwork.IsMasterClient)
+            {
+                Debug.LogFormat("OnPlayerLeftRoom IsMasterClient {0}", PhotonNetwork.IsMasterClient); // called before OnPlayerLeftRoom
+            }
+        }
+
+        #endregion Photon Callbacks
+
+        #region Public Methods
+
+        public void LeaveRoom()
+        {
+            PhotonNetwork.LeaveRoom();
+
+        }
+
+        #endregion Public Methods
     }
-
-    #endregion Photon Callbacks
-
-    #region Public Methods
-
-    public void LeaveRoom()
-    {
-        PhotonNetwork.LeaveRoom();
-
-    }
-
-    #endregion Public Methods
-
-    #region Private Methods
-    #endregion Private Methods
 }

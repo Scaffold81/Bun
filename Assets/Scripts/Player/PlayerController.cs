@@ -1,12 +1,13 @@
 ﻿using Core.UI;
 using Photon.Pun;
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Core.Player.Controllers
 {
     [RequireComponent(typeof(Rigidbody)), RequireComponent(typeof(PhotonView))]
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : MonoBehaviour, IPunObservable
     {
         private GameObject _go;
         private Rigidbody _rb;
@@ -40,9 +41,8 @@ namespace Core.Player.Controllers
 
         public void SetPlayerUI(UIPlayerView playerUIView)
         {
-           
             _playerUIView = playerUIView;
-            
+
             if (!PlayerData.IsMine) return;
             _playerUIView.JoysticHandler.Direction += MoveAndRotate;
             _playerUIView.JumpButtonHandler.Jump += OnJump;
@@ -50,6 +50,7 @@ namespace Core.Player.Controllers
 
         private void MoveAndRotate(Vector2 vector)
         {
+            if (!_playerData.IsMine || !_playerData.IsActive) return;
             vector = vector.normalized;
             _view.OnMove(new Vector2(0, vector.y), _playerData.Speed);
             _view.OnRotate(new Vector2(vector.x, 0), _playerData.SpeedRotate);
@@ -57,42 +58,49 @@ namespace Core.Player.Controllers
 
         public void OnJump()
         {
-            if (!_playerData.IsMine) return;
+            if (!_playerData.IsMine || !_playerData.IsActive) return;
             _view.OnJump(_playerData.JumpForce);
         }
 
         public void OnRotateInput(InputAction.CallbackContext context)
         {
-            if (!_playerData.IsMine) return;
+            if (!_playerData.IsMine || !_playerData.IsActive) return;
             var rotate = context.ReadValue<Vector2>();
             _view.OnRotate(rotate, _playerData.SpeedRotate);
         }
 
         public void OnMoveInput(InputAction.CallbackContext context)
         {
-            if (!_playerData.IsMine) return;
             var movement = context.ReadValue<Vector2>();
+            
+            if (!_playerData.IsMine ||!_playerData.IsActive) return;
+            
             _view.OnMove(movement, _playerData.Speed);
         }
 
         public void OnJumpInput(InputAction.CallbackContext context)
         {
-            if (!_playerData.IsMine) return;
+            if (!_playerData.IsMine || !_playerData.IsActive) return;
             _view.OnJump(_playerData.JumpForce);
         }
 
-        public void OnDamageRPC(Vector3 impactForce)
+        public void OnDamage(Vector3 impactForce)
         {
-            _photonView.RPC("Damage", RpcTarget.Others, impactForce);
+            if (!_playerData.IsMine || !_playerData.IsActive) return;
+            PlayerData.Mass -= impactForce.magnitude * 0.01f;
+            if (PlayerData.Mass < PlayerData.BaseMinMass)
+                OnDead();
         }
 
-        public void IncreaseMassRPC(Vector3 impactForce)
+        public void IncreaseMass(Vector3 impactForce)
         {
-            _photonView.RPC("IncreaseMass", RpcTarget.All, impactForce);
+            if (!_playerData.IsMine || !_playerData.IsActive) return;
+            PlayerData.Mass += impactForce.magnitude * 0.01f;
         }
 
         private void OnDead()
         {
+            _playerData.IsActive = false;
             Debug.Log("Player " + _photonView.ViewID + " dead");
         }
 
@@ -105,31 +113,35 @@ namespace Core.Player.Controllers
         }
 
         [PunRPC]
-        public void Damage(Vector3 direction)
+        public void SetImpulceRPC(Vector3 force)
         {
-            PlayerData.Mass -= direction.magnitude * 0.01f;
-            _view.SetInpulse(new Vector3(direction.x, 0, direction.z));
-            if (PlayerData.Mass < PlayerData.BaseMinMass)
-                OnDead();
-        }
-
-        [PunRPC]
-        public void IncreaseMass(Vector3 direction)
-        {
-            PlayerData.Mass += direction.magnitude * 0.01f;
+            _view.SetInpulse(new Vector3(force.x, 0, force.z));
         }
 
         #endregion  Pun RPC
 
+        public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+        {
+            if (stream.IsWriting)
+            {
+                // We own this player: send the others our data
+                stream.SendNext(PlayerData.Mass);
+            }
+            else
+            {
+                // Network player, receive data
+                PlayerData.Mass = (float)stream.ReceiveNext();
+            }
+        }
+
         private void OnDestroy()
         {
-            if(!PlayerData.IsMine)return;
+            if (!PlayerData.IsMine) return;
 
             _playerUIView.JoysticHandler.Direction -= MoveAndRotate;
             _playerUIView.JumpButtonHandler.Jump -= OnJump;
             _playerView.UnSubscribe();
         }
-
 
     }
 }

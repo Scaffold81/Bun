@@ -35,13 +35,14 @@ namespace Core.Player.Controllers
 
             var impactForce = _rb.velocity * _rb.mass; // Рассчитывем импульс силы
             var forceDirection = otherPlayer.transform.position - _rb.transform.position;
-            var force = forceDirection.normalized * impactForce.magnitude * 5f;
+            var force = forceDirection.normalized * impactForce.magnitude*5;
 
             if (_rb.velocity.magnitude > otherRigidbody.velocity.magnitude)
             {
-                otherPlayer.OnDamageRPC(force);
-                _playerController.IncreaseMassRPC(force);
-            }
+                otherPlayer.OnDamage(force);
+                _playerController.IncreaseMass(force);
+                otherPlayer.gameObject.GetComponent<PhotonView>().RPC("SetImpulceRPC", RpcTarget.All,force);
+        }
 
             _canApplyForce = false; // Устанавливаем флаг "canApplyForce" в false
             Invoke(nameof(ResetForceFlag), _timeBetweenCollisions); // Вызываем метод сброса флага после указанного времени

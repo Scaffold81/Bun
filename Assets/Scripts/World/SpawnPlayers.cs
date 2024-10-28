@@ -1,6 +1,7 @@
 using Core.Data;
 using Core.Player.Controllers;
 using Core.UI;
+using Game.Core.Enums;
 using Photon.Pun;
 using System.Collections.Generic;
 using UnityEngine;
@@ -65,8 +66,7 @@ public class SpawnPlayers : MonoBehaviour
                     player.PlayerData.IsMine = false;
                 }
             }
-
-            player.PlayerData.PlayerState = PlayerStates.Alive;
+            player.PlayerData.IsActive = true;
             players.Add(player);
             _sceneDataProvider.Publish(PlayerDataNames.CurrenPlayer, player);
             _sceneDataProvider.Publish(PlayerDataNames.Players, players);
