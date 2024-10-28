@@ -45,7 +45,7 @@ namespace Core.Player
                 OnMassChanged(value);
             }
         }
-        
+
         public Action<float> MassChanged;
         
         public void UpdateStats()
@@ -55,6 +55,7 @@ namespace Core.Player
             Gravity = _baseGravity;
             JumpForce = _baseJumpForce;
             Mass = _baseMass;
+            BaseMinMass = _baseMinMass;
         }
 
         private void OnMassChanged(float newValue)

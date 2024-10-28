@@ -9,7 +9,6 @@
     public enum GameDataNames
     {
         GameState,
-
         Timer
     }
 
@@ -18,6 +17,11 @@
         Start,
         Stop,
         End
+    }
+    public enum PlayerState
+    {
+        Alive,
+        Dead
     }
 
     public enum PhotonCallbacksNames

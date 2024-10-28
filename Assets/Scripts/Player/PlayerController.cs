@@ -1,4 +1,6 @@
-﻿using Core.UI;
+﻿using Core.Data;
+using Core.UI;
+using Game.Core.Enums;
 using Photon.Pun;
 using System;
 using UnityEngine;
@@ -19,6 +21,8 @@ namespace Core.Player.Controllers
         private CollisionHandler _collisionHandler;
         private PlayerView _playerView;
 
+        private SceneDataProvider _sceneDataProvider;
+
         public PlayerData PlayerData { get { return _playerData; } }
 
         private void Awake()
@@ -34,6 +38,8 @@ namespace Core.Player.Controllers
 
         private void Start()
         {
+            _sceneDataProvider = SceneDataProvider.Instance;
+
             _view.Init(_rb);
             _collisionHandler.Init(_rb, _photonView, this);
             _photonView.RPC("UpdateStats", RpcTarget.All);
@@ -101,6 +107,7 @@ namespace Core.Player.Controllers
         private void OnDead()
         {
             _playerData.IsActive = false;
+            _sceneDataProvider.Publish(PlayerDataNames.PlayerState, PlayerState.Dead);
             Debug.Log("Player " + _photonView.ViewID + " dead");
         }
 

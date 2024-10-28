@@ -41,7 +41,7 @@ namespace Core.Player.Controllers
             {
                 otherPlayer.OnDamage(force);
                 _playerController.IncreaseMass(force);
-                otherPlayer.gameObject.GetComponent<PhotonView>().RPC("SetImpulceRPC", RpcTarget.All,force);
+                otherPlayer.gameObject.GetComponent<PhotonView>().RPC("SetImpulceRPC", RpcTarget.Others,force);
         }
 
             _canApplyForce = false; // Устанавливаем флаг "canApplyForce" в false

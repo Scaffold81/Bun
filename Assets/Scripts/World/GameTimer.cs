@@ -15,10 +15,9 @@ namespace Core.Player.Gameplay
         [SerializeField]
         private float _currentTimer = 100;// 900f;
         private bool _isTimerRunning = false;
-
-        private SceneDataProvider _sceneDataProvider;
         private Coroutine _coroutine;
 
+        private SceneDataProvider _sceneDataProvider;
         private CompositeDisposable _disposables = new();
 
         public float CurrentTimer
