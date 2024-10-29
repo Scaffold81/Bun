@@ -68,7 +68,7 @@ public class SpawnPlayers : MonoBehaviour
             }
             player.PlayerData.IsActive = true;
             players.Add(player);
-            _sceneDataProvider.Publish(PlayerDataNames.CurrenPlayer, player);
+            _sceneDataProvider.Publish(PlayerDataNames.CurrentPlayer, player);
             _sceneDataProvider.Publish(PlayerDataNames.Players, players);
 
 

@@ -8,10 +8,10 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Linq;
 using Game.Core.Enums;
 using System.Reactive.Disposables;
 using RxExtensions;
+
 namespace Game.Core.Managers
 {
     public class GameManager : MonoBehaviourPunCallbacks
@@ -19,7 +19,7 @@ namespace Game.Core.Managers
         private SceneDataProvider _sceneDataProvider;
 
         [SerializeField]
-        private UILevelMainMenuView levelMainMenuUI;
+        private UILevelMainView levelMainMenuUI;
         [SerializeField]
         private SpawnPlayers spawnPlayers;
 
@@ -47,6 +47,13 @@ namespace Game.Core.Managers
             {
                 if (newValue == GameState.End)
                     EndGame();
+                else if (newValue == GameState.Pause)
+                    PauseGame();
+                else if (newValue == GameState.Release)
+                    ReleaseGame();
+                else if (newValue == GameState.Leave)
+                    LeaveGame();
+
             }).AddTo(_disposables);
 
             _sceneDataProvider.Receive<List<PlayerController>>(PlayerDataNames.Players).Subscribe(newValue =>
@@ -54,11 +61,27 @@ namespace Game.Core.Managers
 
             }).AddTo(_disposables);
         }
+        private void PauseGame()
+        {
+           var player = (PlayerController)_sceneDataProvider.GetValue(PlayerDataNames.CurrentPlayer) ?? new PlayerController();
+           player.PlayerData.IsActive = false;
+        }
+
+        private void ReleaseGame()
+        {
+            var player = (PlayerController)_sceneDataProvider.GetValue(PlayerDataNames.CurrentPlayer) ?? new PlayerController();
+            player.PlayerData.IsActive = true;
+        }
 
         private void EndGame()
         {
             var players = (List<PlayerController>)_sceneDataProvider.GetValue(PlayerDataNames.Players) ?? new List<PlayerController>();
             players.ForEach(player => player.PlayerData.IsActive = false);
+        }
+
+        private void LeaveGame()
+        {
+            LeaveRoom();
         }
 
         private IEnumerator StartGame()
@@ -74,11 +97,6 @@ namespace Game.Core.Managers
                     spawnPlayers.SpawnPlayer();
                 }
             }
-        }
-        
-        private void OnDestroy()
-        {
-            _disposables.Dispose();
         }
 
         #endregion Private Methods
@@ -120,9 +138,13 @@ namespace Game.Core.Managers
         public void LeaveRoom()
         {
             PhotonNetwork.LeaveRoom();
-
         }
 
         #endregion Public Methods
+        
+        private void OnDestroy()
+        {
+            _disposables.Dispose();
+        }
     }
 }

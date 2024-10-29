@@ -92,7 +92,7 @@ namespace Core.Player.Controllers
 
         public void OnDamage(Vector3 impactForce)
         {
-            if (!_playerData.IsMine || !_playerData.IsActive) return;
+            if (!_playerData.IsMine) return;
             PlayerData.Mass -= impactForce.magnitude * 0.01f;
             if (PlayerData.Mass < PlayerData.BaseMinMass)
                 OnDead();

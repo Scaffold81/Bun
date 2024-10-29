@@ -2,7 +2,7 @@
 {
     public enum PlayerDataNames
     {
-        CurrenPlayer,
+        CurrentPlayer,
         Players,
         PlayerState
     }
@@ -15,8 +15,11 @@
     public enum GameState
     {
         Start,
+        Pause,
+        Release,
         Stop,
-        End
+        End,
+        Leave
     }
     public enum PlayerState
     {
