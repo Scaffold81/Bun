@@ -44,6 +44,7 @@ public class UIJoysticHandler : MonoBehaviour, IPointerDownHandler, IPointerUpHa
         mouseAction.Disable();
         touchAction.Disable();
     }
+
     private void MousePerformed(InputAction.CallbackContext context)
     {
         Vector2 mousePosition = context.ReadValue<Vector2>();
