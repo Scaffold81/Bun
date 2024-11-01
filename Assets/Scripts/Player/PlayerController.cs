@@ -78,9 +78,9 @@ namespace Core.Player.Controllers
         public void OnMoveInput(InputAction.CallbackContext context)
         {
             var movement = context.ReadValue<Vector2>();
-            
-            if (!_playerData.IsMine ||!_playerData.IsActive) return;
-            
+
+            if (!_playerData.IsMine || !_playerData.IsActive) return;
+
             _view.OnMove(movement, _playerData.Speed);
         }
 
@@ -107,8 +107,16 @@ namespace Core.Player.Controllers
         private void OnDead()
         {
             _playerData.IsActive = false;
-            _sceneDataProvider.Publish(PlayerDataNames.PlayerState, PlayerState.Dead);
-            Debug.Log("Player " + _photonView.ViewID + " dead");
+            _sceneDataProvider.Publish(PlayerDataNames.PlayerDeleted, this);
+
+            if (_playerData.IsMine)
+            {
+                _sceneDataProvider.Publish(GameDataNames.GameState, GameEventName.DeadPanelOn);
+                _sceneDataProvider.Publish(GameDataNames.GameState, GameEventName.PausePanelOff);
+                _sceneDataProvider.Publish(GameDataNames.GameState, GameEventName.MainMenuPanelOff);
+            }
+
+            PhotonNetwork.Destroy(_photonView);
         }
 
         #region Pun RPC
@@ -143,6 +151,8 @@ namespace Core.Player.Controllers
 
         private void OnDestroy()
         {
+            _sceneDataProvider.Publish(PlayerDataNames.PlayerDeleted, this);
+
             if (!PlayerData.IsMine) return;
 
             _playerUIView.JoysticHandler.Direction -= MoveAndRotate;

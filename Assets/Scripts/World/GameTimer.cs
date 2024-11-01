@@ -65,7 +65,7 @@ namespace Core.Player.Gameplay
         public void StartTimer()
         {
             _isTimerRunning = true;
-            _coroutine = StartCoroutine(nameof(Timer));
+            _coroutine ??= StartCoroutine(nameof(Timer));
         }
 
         public void StopTimer()
@@ -83,7 +83,7 @@ namespace Core.Player.Gameplay
             
             if (timeRemaining <= 0)
             {
-                _sceneDataProvider.Publish(GameDataNames.GameState, GameState.End);
+                _sceneDataProvider.Publish(GameDataNames.GameState, GameEventName.End);
             }
         }
         #endregion private

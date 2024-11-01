@@ -3,36 +3,48 @@
   "WorkspaceRootPath": "D:\\UnityProjects\\BattleOfTheBalls\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{4210CB4C-EADD-6575-50EE-0F4C2326DBD5}|Assembly-CSharp.Player.csproj|D:\\UnityProjects\\BattleOfTheBalls\\assets\\scripts\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4210CB4C-EADD-6575-50EE-0F4C2326DBD5}|Assembly-CSharp.Player.csproj|solutionrelative:assets\\scripts\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F9CD54BA-D966-9383-734D-9F4156EAB36B}|Assembly-CSharp.csproj|D:\\UnityProjects\\BattleOfTheBalls\\assets\\scripts\\world\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F9CD54BA-D966-9383-734D-9F4156EAB36B}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\world\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9CD54BA-D966-9383-734D-9F4156EAB36B}|Assembly-CSharp.csproj|D:\\UnityProjects\\BattleOfTheBalls\\assets\\scripts\\world\\gametimer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F9CD54BA-D966-9383-734D-9F4156EAB36B}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\world\\gametimer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F9CD54BA-D966-9383-734D-9F4156EAB36B}|Assembly-CSharp.csproj|D:\\UnityProjects\\BattleOfTheBalls\\assets\\scripts\\enums\\playerdatanames.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F9CD54BA-D966-9383-734D-9F4156EAB36B}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enums\\playerdatanames.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{F9CD54BA-D966-9383-734D-9F4156EAB36B}|Assembly-CSharp.csproj|d:\\unityprojects\\battleoftheballs\\assets\\scripts\\ui\\eventgamedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F9CD54BA-D966-9383-734D-9F4156EAB36B}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\eventgamedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F9CD54BA-D966-9383-734D-9F4156EAB36B}|Assembly-CSharp.csproj|d:\\unityprojects\\battleoftheballs\\assets\\scripts\\ui\\uibuttonplayerstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F9CD54BA-D966-9383-734D-9F4156EAB36B}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\uibuttonplayerstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F9CD54BA-D966-9383-734D-9F4156EAB36B}|Assembly-CSharp.csproj|D:\\UnityProjects\\BattleOfTheBalls\\assets\\scripts\\player\\playerdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F9CD54BA-D966-9383-734D-9F4156EAB36B}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playerdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F9CD54BA-D966-9383-734D-9F4156EAB36B}|Assembly-CSharp.csproj|D:\\UnityProjects\\BattleOfTheBalls\\assets\\scripts\\ui\\uipanelgamestateswitcher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F9CD54BA-D966-9383-734D-9F4156EAB36B}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\uipanelgamestateswitcher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F9CD54BA-D966-9383-734D-9F4156EAB36B}|Assembly-CSharp.csproj|D:\\UnityProjects\\BattleOfTheBalls\\assets\\scripts\\data\\scenedataprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F9CD54BA-D966-9383-734D-9F4156EAB36B}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\data\\scenedataprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F9CD54BA-D966-9383-734D-9F4156EAB36B}|Assembly-CSharp.csproj|D:\\UnityProjects\\BattleOfTheBalls\\assets\\scripts\\ui\\uimainview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F9CD54BA-D966-9383-734D-9F4156EAB36B}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\uimainview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F9CD54BA-D966-9383-734D-9F4156EAB36B}|Assembly-CSharp.csproj|D:\\UnityProjects\\BattleOfTheBalls\\assets\\scripts\\player\\playerview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F9CD54BA-D966-9383-734D-9F4156EAB36B}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playerview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F9CD54BA-D966-9383-734D-9F4156EAB36B}|Assembly-CSharp.csproj|D:\\UnityProjects\\BattleOfTheBalls\\assets\\scripts\\ui\\uipanelstateswitcherbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F9CD54BA-D966-9383-734D-9F4156EAB36B}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\uipanelstateswitcherbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F9CD54BA-D966-9383-734D-9F4156EAB36B}|Assembly-CSharp.csproj|D:\\UnityProjects\\BattleOfTheBalls\\assets\\scripts\\world\\spawnplayers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F9CD54BA-D966-9383-734D-9F4156EAB36B}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\world\\spawnplayers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F9CD54BA-D966-9383-734D-9F4156EAB36B}|Assembly-CSharp.csproj|D:\\UnityProjects\\BattleOfTheBalls\\assets\\scripts\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F9CD54BA-D966-9383-734D-9F4156EAB36B}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F9CD54BA-D966-9383-734D-9F4156EAB36B}|Assembly-CSharp.csproj|D:\\UnityProjects\\BattleOfTheBalls\\assets\\scripts\\player\\playerdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F9CD54BA-D966-9383-734D-9F4156EAB36B}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playerdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F9CD54BA-D966-9383-734D-9F4156EAB36B}|Assembly-CSharp.csproj|D:\\UnityProjects\\BattleOfTheBalls\\assets\\scripts\\ui\\uilevelmainview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -46,24 +58,86 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EventGameData.cs",
+              "DocumentMoniker": "D:\\UnityProjects\\BattleOfTheBalls\\Assets\\Scripts\\UI\\EventGameData.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\EventGameData.cs",
+              "ToolTip": "D:\\UnityProjects\\BattleOfTheBalls\\Assets\\Scripts\\UI\\EventGameData.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\EventGameData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-01T10:57:35.202Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "GameTimer.cs",
+              "DocumentMoniker": "D:\\UnityProjects\\BattleOfTheBalls\\Assets\\Scripts\\World\\GameTimer.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\World\\GameTimer.cs",
+              "ToolTip": "D:\\UnityProjects\\BattleOfTheBalls\\Assets\\Scripts\\World\\GameTimer.cs",
+              "RelativeToolTip": "Assets\\Scripts\\World\\GameTimer.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAewFUAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-30T19:12:21.961Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UIPanelStateSwitcherBase.cs",
+              "DocumentMoniker": "D:\\UnityProjects\\BattleOfTheBalls\\Assets\\Scripts\\UI\\UIPanelStateSwitcherBase.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\UIPanelStateSwitcherBase.cs",
+              "ToolTip": "D:\\UnityProjects\\BattleOfTheBalls\\Assets\\Scripts\\UI\\UIPanelStateSwitcherBase.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\UIPanelStateSwitcherBase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-30T19:06:17.215Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UIPanelGameStateSwitcher.cs",
+              "DocumentMoniker": "D:\\UnityProjects\\BattleOfTheBalls\\Assets\\Scripts\\UI\\UIPanelGameStateSwitcher.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\UIPanelGameStateSwitcher.cs",
+              "ToolTip": "D:\\UnityProjects\\BattleOfTheBalls\\Assets\\Scripts\\UI\\UIPanelGameStateSwitcher.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\UIPanelGameStateSwitcher.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwBsAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-30T18:39:42.972Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UIMainView.cs",
+              "DocumentMoniker": "D:\\UnityProjects\\BattleOfTheBalls\\Assets\\Scripts\\UI\\UIMainView.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\UIMainView.cs",
+              "ToolTip": "D:\\UnityProjects\\BattleOfTheBalls\\Assets\\Scripts\\UI\\UIMainView.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\UIMainView.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-30T18:27:52.712Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "UIButtonPlayerState.cs",
               "DocumentMoniker": "D:\\UnityProjects\\BattleOfTheBalls\\Assets\\Scripts\\UI\\UIButtonPlayerState.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\UIButtonPlayerState.cs",
               "ToolTip": "D:\\UnityProjects\\BattleOfTheBalls\\Assets\\Scripts\\UI\\UIButtonPlayerState.cs",
               "RelativeToolTip": "Assets\\Scripts\\UI\\UIButtonPlayerState.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-29T15:24:03.705Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "UILevelMainView.cs",
               "DocumentMoniker": "D:\\UnityProjects\\BattleOfTheBalls\\Assets\\Scripts\\UI\\UILevelMainView.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\UILevelMainView.cs",
@@ -75,89 +149,66 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "PlayerDataNames.cs",
               "DocumentMoniker": "D:\\UnityProjects\\BattleOfTheBalls\\Assets\\Scripts\\Enums\\PlayerDataNames.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Enums\\PlayerDataNames.cs",
               "ToolTip": "D:\\UnityProjects\\BattleOfTheBalls\\Assets\\Scripts\\Enums\\PlayerDataNames.cs",
               "RelativeToolTip": "Assets\\Scripts\\Enums\\PlayerDataNames.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAIAAAAAAAAAAAA5wCIAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-28T07:10:35.67Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 0,
               "Title": "PlayerController.cs",
               "DocumentMoniker": "D:\\UnityProjects\\BattleOfTheBalls\\Assets\\Scripts\\Player\\PlayerController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerController.cs",
               "ToolTip": "D:\\UnityProjects\\BattleOfTheBalls\\Assets\\Scripts\\Player\\PlayerController.cs",
               "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerController.cs",
-              "ViewState": "AgIAAFQAAAAAAAAAAAAAwF4AAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAwwHYAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-26T12:59:19.652Z"
+              "WhenOpened": "2024-10-26T12:59:19.652Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "SpawnPlayers.cs",
               "DocumentMoniker": "D:\\UnityProjects\\BattleOfTheBalls\\Assets\\Scripts\\World\\SpawnPlayers.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\World\\SpawnPlayers.cs",
               "ToolTip": "D:\\UnityProjects\\BattleOfTheBalls\\Assets\\Scripts\\World\\SpawnPlayers.cs",
               "RelativeToolTip": "Assets\\Scripts\\World\\SpawnPlayers.cs",
-              "ViewState": "AgIAADQAAAAAAAAAAAAhwEQAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAACYAAAAAAAAAAAAcwB0AAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-25T10:14:00.144Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "GameManager.cs",
               "DocumentMoniker": "D:\\UnityProjects\\BattleOfTheBalls\\Assets\\Scripts\\World\\GameManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\World\\GameManager.cs",
               "ToolTip": "D:\\UnityProjects\\BattleOfTheBalls\\Assets\\Scripts\\World\\GameManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\World\\GameManager.cs",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAwwFAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAowFUAAABeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-21T13:22:38.557Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 10,
               "Title": "PlayerData.cs",
               "DocumentMoniker": "D:\\UnityProjects\\BattleOfTheBalls\\Assets\\Scripts\\Player\\PlayerData.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerData.cs",
               "ToolTip": "D:\\UnityProjects\\BattleOfTheBalls\\Assets\\Scripts\\Player\\PlayerData.cs",
               "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerData.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAswDkAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAcwCEAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-25T06:11:49.832Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SceneDataProvider.cs",
-              "DocumentMoniker": "D:\\UnityProjects\\BattleOfTheBalls\\Assets\\Scripts\\Data\\SceneDataProvider.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Data\\SceneDataProvider.cs",
-              "ToolTip": "D:\\UnityProjects\\BattleOfTheBalls\\Assets\\Scripts\\Data\\SceneDataProvider.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Data\\SceneDataProvider.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T08:28:12.084Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "PlayerView.cs",
-              "DocumentMoniker": "D:\\UnityProjects\\BattleOfTheBalls\\Assets\\Scripts\\Player\\PlayerView.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerView.cs",
-              "ToolTip": "D:\\UnityProjects\\BattleOfTheBalls\\Assets\\Scripts\\Player\\PlayerView.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerView.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAQwCEAAABDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T10:10:20.6Z"
             }
           ]
         }

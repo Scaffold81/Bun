@@ -43,24 +43,27 @@ namespace Game.Core.Managers
         #region Private Methods
         private void Subscription()
         {
-            _sceneDataProvider.Receive<GameState>(GameDataNames.GameState).Subscribe(newValue =>
+            _sceneDataProvider.Receive<GameEventName>(GameDataNames.GameState).Subscribe(newValue =>
             {
-                if (newValue == GameState.End)
+                if (newValue == GameEventName.End)
                     EndGame();
-                else if (newValue == GameState.Pause)
+                else if (newValue == GameEventName.Pause)
                     PauseGame();
-                else if (newValue == GameState.Release)
+                else if (newValue == GameEventName.Release)
                     ReleaseGame();
-                else if (newValue == GameState.Leave)
+                else if (newValue == GameEventName.Leave)
                     LeaveGame();
+                else if (newValue == GameEventName.Ressurect)
+                    RessurectPlayer();
 
             }).AddTo(_disposables);
-
-            _sceneDataProvider.Receive<List<PlayerController>>(PlayerDataNames.Players).Subscribe(newValue =>
+            
+            _sceneDataProvider.Receive<PlayerController>(PlayerDataNames.PlayerDeleted).Subscribe(newValue =>
             {
-
+                RemovePlayerInList(newValue);
             }).AddTo(_disposables);
         }
+        
         private void PauseGame()
         {
            var player = (PlayerController)_sceneDataProvider.GetValue(PlayerDataNames.CurrentPlayer) ?? new PlayerController();
@@ -77,11 +80,33 @@ namespace Game.Core.Managers
         {
             var players = (List<PlayerController>)_sceneDataProvider.GetValue(PlayerDataNames.Players) ?? new List<PlayerController>();
             players.ForEach(player => player.PlayerData.IsActive = false);
+            _sceneDataProvider.Publish(GameDataNames.GameState, GameEventName.DeadPanelOff);
+            _sceneDataProvider.Publish(GameDataNames.GameState, GameEventName.MainMenuPanelOff);
+            _sceneDataProvider.Publish(GameDataNames.GameState, GameEventName.PausePanelOff);
+            _sceneDataProvider.Publish(GameDataNames.GameState, GameEventName.EndGamePanelOn);
+        }
+
+        private void RemovePlayerInList(PlayerController value)
+        {
+            var players = (List<PlayerController>)_sceneDataProvider.GetValue(PlayerDataNames.Players) ?? new List<PlayerController>();
+            players.Remove(value);
+            _sceneDataProvider.Publish(PlayerDataNames.Players, players);
         }
 
         private void LeaveGame()
         {
             LeaveRoom();
+        }
+
+        private void RessurectPlayer()
+        {
+            _sceneDataProvider.Publish(GameDataNames.GameState, GameEventName.DeadPanelOff);
+            spawnPlayers.SpawnPlayer();
+        }
+
+        private void SpawnPlayer()
+        {
+            spawnPlayers.SpawnPlayer();
         }
 
         private IEnumerator StartGame()
@@ -94,7 +119,7 @@ namespace Game.Core.Managers
 
                 if (startUpTimer == 0)
                 {
-                    spawnPlayers.SpawnPlayer();
+                    SpawnPlayer();
                 }
             }
         }

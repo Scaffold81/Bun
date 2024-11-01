@@ -11,6 +11,11 @@ namespace Core.UI
     {
         [SerializeField]
         private GameDataNames _gameDataNames;
+       
+        [SerializeField]
+        private GameEventName _stateForOn;
+        [SerializeField]
+        private GameEventName _stateForOff;
 
         private CompositeDisposable _disposables = new();
 
@@ -20,11 +25,11 @@ namespace Core.UI
         {
             _sceneDataProvider = SceneDataProvider.Instance;
 
-            _sceneDataProvider.Receive<GameState>(_gameDataNames).Subscribe(newValue =>
+            _sceneDataProvider.Receive<GameEventName>(_gameDataNames).Subscribe(newValue =>
             {
-                if (newValue == GameState.Pause)
+                if (newValue == _stateForOn)
                     PanelOn();
-                else if (newValue == GameState.Release) 
+                else if (newValue == _stateForOff) 
                     PanelOff();
 
             }).AddTo(_disposables);

@@ -30,9 +30,9 @@ namespace Core.Player
         public bool IsActive 
         {
             get=> _isActive;
-            set  {
+            set  
+            {
                 _isActive=value;
-                UnityEngine.Debug.Log("IsActive "+_isActive); 
             }
         }
 

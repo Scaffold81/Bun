@@ -70,8 +70,6 @@ public class SpawnPlayers : MonoBehaviour
             players.Add(player);
             _sceneDataProvider.Publish(PlayerDataNames.CurrentPlayer, player);
             _sceneDataProvider.Publish(PlayerDataNames.Players, players);
-
-
         }
     }
 

@@ -1,5 +1,5 @@
 ﻿using Core.Data;
-using Game.Core.Enums;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Core.UI
@@ -7,9 +7,7 @@ namespace Core.UI
     public class UIButtonPlayerState : UICustomButtonBase
     {
         [SerializeField]
-        private GameDataNames _gameDataNames;
-        [SerializeField]
-        private GameState _gameState;
+        private List<EventGameData> eventGameDatas;
 
         private SceneDataProvider _sceneDataProvider;
 
@@ -20,7 +18,10 @@ namespace Core.UI
 
         public override void OnClick()
         {
-            _sceneDataProvider.Publish(_gameDataNames, _gameState);
+            foreach (var gameData in eventGameDatas)
+            {
+                _sceneDataProvider.Publish(gameData.gameDataNames, gameData.gameState);
+            }
         }
     }
 }
